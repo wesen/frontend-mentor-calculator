@@ -3,13 +3,16 @@ import { ChangeEvent, KeyboardEvent, useRef, useState } from 'react'
 
 type Props = {
   value?: string
+  selected: boolean
   onSubmit?: (val: string) => void
 }
 
 export const EditableButton: React.FunctionComponent<Props> = (props) => {
-  const { value, onSubmit } = props
+  const { value, onSubmit, selected } = props
+  const [isEditing, setIsEditing] = useState(false)
   const [editValue, setEditValue] = useState<string | undefined>(value)
   const [previousValue, setPreviousValue] = useState<string | undefined>(value)
+
   const inputRef = useRef<HTMLInputElement>(null)
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -20,11 +23,12 @@ export const EditableButton: React.FunctionComponent<Props> = (props) => {
     inputRef.current && inputRef.current.blur()
   }
   const submit = () => {
-    const value = editValue
+    const value = editValue ?? ''
     inputRef.current && inputRef.current.blur()
     setEditValue(value)
-    onSubmit && value && onSubmit(value)
+    onSubmit && onSubmit(value)
   }
+
   const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
       submit()
@@ -36,9 +40,11 @@ export const EditableButton: React.FunctionComponent<Props> = (props) => {
   const handleFocus = () => {
     setPreviousValue(editValue)
     setEditValue('')
+    setIsEditing(true)
   }
 
   const handleBlur = () => {
+    setIsEditing(false)
     clear()
   }
 
@@ -47,11 +53,16 @@ export const EditableButton: React.FunctionComponent<Props> = (props) => {
       ref={inputRef}
       type="text"
       className={`
-      text-medium-green bg-lightest-green text-right
-        rounded-md h-12 px-4 font-space font-bold text-lg
-        border-lightest-green border-2
-        outline-light-green outline-2`}
-      value={editValue !== undefined ? editValue : 'Custom'}
+      ${
+        selected && !isEditing
+          ? 'text-dark-green bg-light-green'
+          : 'text-medium-green bg-lightest-green'
+      } 
+      ${isEditing ? 'text-right' : 'text-center'}
+      rounded-md h-12 px-4 font-space font-bold text-lg
+      border-lightest-green border-2
+      outline-light-green outline-2`}
+      value={isEditing ? editValue : value ? value + '%' : 'Custom'}
       onChange={handleChange}
       onKeyDown={handleKeyDown}
       onFocus={handleFocus}

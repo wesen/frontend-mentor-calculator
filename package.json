@@ -10,6 +10,7 @@
     "chromatic": "npx chromatic --project-token=21a37a153655"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.7.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
