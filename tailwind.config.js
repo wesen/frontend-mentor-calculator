@@ -1,8 +1,5 @@
 module.exports = {
-  content: [
-    './pages/**/*.{js,ts,jsx,tsx}',
-    './components/**/*.{js,ts,jsx,tsx}',
-  ],
+  content: ['./src/**/*.{js,ts,jsx,tsx}'],
   enabled: process.env.NODE_ENV === 'production',
   theme: {
     screens: {
@@ -13,15 +10,8 @@ module.exports = {
     },
     extend: {
       colors: {
-        'dark-blue': '#334253',
-        'grayish-blue': '#67727e',
-        'very-light-gray': '#F5F6FA',
-        'light-gray': '#E9EBF0',
-        white: '#ffffff',
-        'moderate-blue': '#5357B6',
-        'light-grayish-blue': '#C5C6EF',
-        'soft-red': '#ED6368',
-        'pale-red': '#FFB8BB',
+        'dark-green': '#00474b',
+        'light-green': '#26c2ae',
       },
       boxShadow: {
         card: '0px 40px 40px -20px rgba(13, 48, 189, 0.15)',
