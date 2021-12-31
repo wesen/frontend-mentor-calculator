@@ -5,13 +5,14 @@ type Props = {
   onClick?: () => void
   selected?: boolean
   custom?: boolean
+  className?: string
 }
 
 export const Button: React.FunctionComponent<Props> = (props) => {
-  const { title, onClick, custom = false, selected = false } = props
+  const { title, onClick, custom = false, selected = false, className } = props
   return (
     <button
-      className={`
+      className={`${className}
       ${
         selected ? 'text-dark-green bg-light-green' : 'text-white bg-dark-green'
       }

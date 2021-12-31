@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { Button } from './Button'
+import { EditableButton } from './EditableButton'
 
 type Props = {
   onSelectTip?: (arg0: number) => void
@@ -24,7 +25,7 @@ export const TipGrid: React.FunctionComponent<Props> = (props) => {
           />
         )
       })}
-      <Button title="Custom" custom={true} />
+      <EditableButton />
     </div>
   )
 }

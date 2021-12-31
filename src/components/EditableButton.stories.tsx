@@ -13,19 +13,15 @@ const Template: ComponentStory<typeof EditableButton> = (args) => (
 
 export const Default = Template.bind({})
 Default.args = {
-  title: '25%',
-  selected: false,
+  value: 'Custom',
 }
 
 export const Selected = Template.bind({})
 Selected.args = {
-  title: '15%',
-  selected: true,
+  value: 'Custom',
 }
 
 export const Custom = Template.bind({})
 Custom.args = {
-  title: 'Custom',
-  selected: false,
-  custom: true,
+  value: 'Custom',
 }
