@@ -34,11 +34,9 @@ module.exports = {
         flair: '13px',
       },
       fontFamily: {
-        rubik: ['Rubik', 'sans-serif'],
+        space: ['Space Mono', 'sans-serif'],
       },
-      spacing: {
-        '100px': '100px',
-      },
+      spacing: {},
     },
   },
   plugins: [],
