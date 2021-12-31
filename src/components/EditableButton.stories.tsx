@@ -1,13 +1,16 @@
 import * as React from 'react'
-import { Button } from './Button'
+import { EditableButton } from './EditableButton'
 import { ComponentStory } from '@storybook/react'
 
 export default {
-  component: Button,
-  title: 'Button',
+  component: EditableButton,
+  title: 'EditableButton',
 }
 
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />
+const Template: ComponentStory<typeof EditableButton> = (args) => (
+  <EditableButton {...args} />
+)
+
 export const Default = Template.bind({})
 Default.args = {
   title: '25%',

@@ -12,16 +12,19 @@ module.exports = {
       colors: {
         'dark-green': '#00474b',
         'light-green': '#26c2ae',
+        'lightest-green': '#f3f9fa',
+        'medium-green': '#547878',
+        gray: '#5e7a7d',
       },
       boxShadow: {
         card: '0px 40px 40px -20px rgba(13, 48, 189, 0.15)',
         button: '0px 20px 20px rgba(56, 42, 225, 0.19)',
       },
       fontSize: {
-        body: ['16px', '24px'],
-        'heading-lg': '24px',
-        'heading-md': '16px',
-        flair: '13px',
+        xl: ['48px', '-1px'],
+        lg: '24px',
+        md: '16px',
+        sm: '13px',
       },
       fontFamily: {
         space: ['Space Mono', 'sans-serif'],
