@@ -71,7 +71,7 @@ export const NumericalField: React.FunctionComponent<Props> = (props) => {
   })(value)
 
   return (
-    <div className="flex relative">
+    <div className="relative">
       <div
         className="absolute left-2 text-lg 
       flex items-center justify-center
@@ -85,7 +85,7 @@ export const NumericalField: React.FunctionComponent<Props> = (props) => {
         ref={inputRef}
         type="text"
         className={`
-      rounded-md h-12 px-4 font-space font-bold text-lg
+      rounded-md h-12 px-4 font-space font-bold text-lg  w-full
       border-lightest-green border-2
       outline-light-green outline-2
       ${unit !== undefined ? 'text-right' : ''}
