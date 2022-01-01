@@ -3,12 +3,22 @@ import { ChangeEvent, KeyboardEvent, useRef, useState } from 'react'
 
 type Props = {
   value?: string
-  selected: boolean
+  defaultValue?: string
   onSubmit?: (val: string) => void
+  className?: string
+  activeClassName?: string
+  transformDisplayValue?: (v: string) => string
 }
 
 export const NumericalField: React.FunctionComponent<Props> = (props) => {
-  const { value, onSubmit, selected } = props
+  const {
+    value,
+    onSubmit,
+    activeClassName,
+    className,
+    transformDisplayValue,
+    defaultValue,
+  } = props
   const [isEditing, setIsEditing] = useState(false)
   const [editValue, setEditValue] = useState<string | undefined>(value)
   const [previousValue, setPreviousValue] = useState<string | undefined>(value)
@@ -48,21 +58,28 @@ export const NumericalField: React.FunctionComponent<Props> = (props) => {
     clear()
   }
 
+  const displayValue = ((v?: string) => {
+    if (isEditing) {
+      return editValue
+    }
+    const value_ = v || defaultValue || ''
+    return transformDisplayValue && v !== undefined
+      ? transformDisplayValue(value_)
+      : value_
+  })(value)
+
   return (
     <input
       ref={inputRef}
       type="text"
       className={`
-      ${
-        selected && !isEditing
-          ? 'text-dark-green bg-light-green'
-          : 'text-medium-green bg-lightest-green'
-      } 
-      ${isEditing ? 'text-right' : 'text-center'}
       rounded-md h-12 px-4 font-space font-bold text-lg
       border-lightest-green border-2
-      outline-light-green outline-2`}
-      value={isEditing ? editValue : value ? value + '%' : 'Custom'}
+      outline-light-green outline-2
+      ${className || ''}
+      ${isEditing && activeClassName ? activeClassName : ''}
+      `}
+      value={displayValue}
       onChange={handleChange}
       onKeyDown={handleKeyDown}
       onFocus={handleFocus}
