@@ -16,7 +16,11 @@ Default.args = {
 export const Selected = Template.bind({})
 Selected.args = {
   tipPercent: 10,
+  tipCustom: 23,
 }
 
 export const Custom = Template.bind({})
-Custom.args = {}
+Custom.args = {
+  tipCustom: 23,
+  tipPercent: 23,
+}

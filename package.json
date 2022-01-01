@@ -12,14 +12,18 @@
   "dependencies": {
     "@reduxjs/toolkit": "^1.7.1",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "react-redux": "^7.2.6"
   },
   "devDependencies": {
     "@babel/core": "^7.16.7",
     "@storybook/addon-actions": "^6.5.0-alpha.5",
     "@storybook/addon-essentials": "^6.5.0-alpha.5",
+    "@storybook/addon-interactions": "^6.4.9",
     "@storybook/addon-links": "^6.5.0-alpha.5",
+    "@storybook/jest": "^0.0.5",
     "@storybook/react": "^6.5.0-alpha.5",
+    "@storybook/testing-library": "0.0.7",
     "@types/react": "^17.0.33",
     "@types/react-dom": "^17.0.10",
     "@typescript-eslint/eslint-plugin": "^5.8.1",
