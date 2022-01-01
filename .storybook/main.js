@@ -57,12 +57,15 @@ module.exports = {
             ],
           }
     // ...
-    return {
-      ...config,
-      define: {
-        ...config.define,
-        global: 'window',
-      },
-    }
+    config.define =
+      configType === 'PRODUCTION'
+        ? config.define
+        : {
+            ...config.define,
+            // needed to fix jest error in storybook/addon-interactions
+            global: 'window',
+          }
+
+    return config
   },
 }
