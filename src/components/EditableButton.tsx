@@ -58,7 +58,7 @@ export const EditableButton: React.FunctionComponent<Props> = (props) => {
           ? 'text-dark-green bg-light-green'
           : 'text-medium-green bg-lightest-green'
       } 
-      ${isEditing ? 'text-right' : 'text-center'}
+      ${isEditing || value === undefined ? 'text-right' : 'text-center'}
       rounded-md h-12 px-4 font-space font-bold text-lg
       border-lightest-green border-2
       outline-light-green outline-2`}

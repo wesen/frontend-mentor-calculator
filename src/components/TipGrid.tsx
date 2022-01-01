@@ -2,29 +2,27 @@ import * as React from 'react'
 import { Button } from './Button'
 import { EditableButton } from './EditableButton'
 import { useState } from 'react'
+import { RootState } from '../store/store'
+import { useDispatch, useSelector } from 'react-redux'
+import {
+  setCustomValue,
+  setPresetValue,
+  TipPercentageState,
+} from '../store/tipPercentageSlice'
 
 type Props = {
-  onSelectTip?: (arg0: number) => void
-  tipPercent?: number
-  tipCustom?: number
   className?: string
 }
 
 export const TipGrid: React.FunctionComponent<Props> = (props) => {
-  const { onSelectTip, tipCustom, tipPercent, className } = props
-  const [isCustom, setIsCustom] = useState(tipCustom == tipPercent)
-  const [customValue, setCustomValue] = useState(tipCustom)
-  const [selectedTip, setSelectedTip] = useState(tipPercent)
+  const { className } = props
 
-  const handleOnCustomSubmit = (v: string) => {
-    if (v) {
-      setCustomValue(parseInt(v))
-      setIsCustom(true)
-    } else {
-      setCustomValue(undefined)
-      setIsCustom(false)
-    }
-  }
+  const { value, isCustom, isError, errorMessage } = useSelector<
+    RootState,
+    TipPercentageState
+  >((state) => state.tipPercentage)
+  const dispatch = useDispatch()
+
   return (
     <div className={`${className} grid grid-cols-2 w-72 gap-4`}>
       {[5, 10, 15, 25, 50].map((v) => {
@@ -32,21 +30,17 @@ export const TipGrid: React.FunctionComponent<Props> = (props) => {
           <Button
             key={v}
             title={`${v}%`}
-            selected={!isCustom && selectedTip == v}
+            selected={!isCustom && value == v}
             onClick={() => {
-              setIsCustom(false)
-              setSelectedTip(v)
-              setIsCustom(false)
-              setCustomValue(undefined)
-              onSelectTip && onSelectTip(v)
+              dispatch(setPresetValue(v))
             }}
           />
         )
       })}
       <EditableButton
         selected={isCustom}
-        value={customValue !== undefined ? customValue.toString() : undefined}
-        onSubmit={handleOnCustomSubmit}
+        value={isCustom ? value.toString() : undefined}
+        onSubmit={(v: string) => dispatch(setCustomValue(v))}
       />
     </div>
   )
