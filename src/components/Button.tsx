@@ -12,7 +12,7 @@ export const Button: React.FunctionComponent<Props> = (props) => {
   const { title, onClick, custom = false, selected = false, className } = props
   return (
     <button
-      className={`${className}
+      className={`${className || ''}
       ${
         selected ? 'text-dark-green bg-light-green' : 'text-white bg-dark-green'
       }
