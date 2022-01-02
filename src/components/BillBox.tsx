@@ -1,13 +1,15 @@
 import * as React from 'react'
 import { NumericalField } from './NumericalField'
 import { DollarsLogo } from '../icons'
+import { BillState, setBillValue } from '../store/billSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import { RootState } from '../store/store'
 
-type Props = {
-  valueCents: number
-}
-
-export const BillBox: React.FunctionComponent<Props> = (props) => {
-  const { valueCents } = props
+export const BillBox = () => {
+  const { valueCents } = useSelector<RootState, BillState>((state) => {
+    return state.bill
+  })
+  const dispatch = useDispatch()
   const formatter = new Intl.NumberFormat('en-US', {
     maximumFractionDigits: 2,
     minimumFractionDigits: 2,
@@ -23,6 +25,9 @@ export const BillBox: React.FunctionComponent<Props> = (props) => {
             : formatter.format(valueCents / 100.0)
         }
         inputClassName="text-right text-dark-green bg-lightest-green"
+        onSubmit={(v: string) =>
+          dispatch(setBillValue(Math.round(parseFloat(v) * 100)))
+        }
       />
     </div>
   )

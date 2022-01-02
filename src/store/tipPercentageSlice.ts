@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { reset } from './resultSlice'
 
 export interface TipPercentageState {
   value: number
@@ -25,6 +26,11 @@ export const TipPercentageSlice = createSlice({
       state.isCustom = true
       state.value = parseInt(action.payload)
     },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(reset, (state, action) => {
+      return initialState
+    })
   },
 })
 

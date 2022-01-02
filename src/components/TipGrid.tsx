@@ -24,24 +24,29 @@ export const TipGrid: React.FunctionComponent<Props> = (props) => {
   const dispatch = useDispatch()
 
   return (
-    <div className={`${className} grid grid-cols-2 w-72 gap-4`}>
-      {[5, 10, 15, 25, 50].map((v) => {
-        return (
-          <Button
-            key={v}
-            title={`${v}%`}
-            selected={!isCustom && value == v}
-            onClick={() => {
-              dispatch(setPresetValue(v))
-            }}
-          />
-        )
-      })}
-      <EditableButton
-        selected={isCustom}
-        value={isCustom ? value.toString() : undefined}
-        onSubmit={(v: string) => dispatch(setCustomValue(v))}
-      />
+    <div>
+      <h2 className="text-gray text-md font-space font-bold mb-2">
+        Select Tip %
+      </h2>
+      <div className={`${className} grid grid-cols-2 w-72 mt-4 gap-4`}>
+        {[5, 10, 15, 25, 50].map((v) => {
+          return (
+            <Button
+              key={v}
+              title={`${v}%`}
+              selected={!isCustom && value == v}
+              onClick={() => {
+                dispatch(setPresetValue(v))
+              }}
+            />
+          )
+        })}
+        <EditableButton
+          selected={isCustom}
+          value={isCustom ? value.toString() : undefined}
+          onSubmit={(v: string) => dispatch(setCustomValue(v))}
+        />
+      </div>
     </div>
   )
 }
