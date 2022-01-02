@@ -98,7 +98,7 @@ export const NumericalField: React.FunctionComponent<Props> = (props) => {
       rounded-md h-12 px-4 font-space font-bold text-lg w-full
       ${
         isError
-          ? 'border-warning focus:border-light-green hover:border-light-green'
+          ? 'border-warning focus:border-light-green hover:border-light-warning'
           : 'border-lightest-green focus:border-light-green hover:border-light-green'
       }
        border-2 outline-0

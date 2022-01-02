@@ -16,8 +16,8 @@ export const Button: React.FunctionComponent<Props> = (props) => {
       max-w-full
       ${
         selected
-          ? 'text-dark-green bg-light-green hover:bg-lightest-green'
-          : 'text-white bg-dark-green hover:bg-light-green'
+          ? 'text-dark-green bg-light-green hover:bg-lighter-green'
+          : 'text-white bg-dark-green hover:bg-lighter-green hover:text-dark-green'
       }
       ${custom ? 'text-medium-green bg-lightest-green' : ''}
         rounded-md h-12 px-4 font-space font-bold text-lg

@@ -13,7 +13,4 @@ export default {
 const Template: ComponentStory<typeof ResultBox> = () => <ResultBox />
 
 export const Default = Template.bind({})
-Default.args = {
-  tipCents: 500,
-  totalCents: 3250,
-}
+Default.args = {}

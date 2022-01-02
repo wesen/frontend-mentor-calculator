@@ -49,7 +49,9 @@ export const TipGrid: React.FunctionComponent<Props> = (props) => {
           <></>
         )}
       </div>
-      <div className={`${className} grid grid-cols-2 mt-4 gap-4`}>
+      <div
+        className={`${className} grid grid-cols-2 desktop:grid-cols-3 mt-4 gap-4`}
+      >
         {[5, 10, 15, 25, 50].map((v) => {
           return (
             <Button
