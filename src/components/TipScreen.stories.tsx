@@ -6,9 +6,9 @@ import { TipScreen } from './TipScreen'
 import { Provider } from 'react-redux'
 import { store } from '../store/store'
 import { reset } from '../store/resultSlice'
-import { setBillValue } from '../store/billSlice'
-import { setPeopleValue } from '../store/peopleSlice'
-import { setCustomValue } from '../store/tipPercentageSlice'
+import { setBillError, setBillValue } from '../store/billSlice'
+import { setPeopleError, setPeopleValue } from '../store/peopleSlice'
+import { setCustomValue, setTipError } from '../store/tipPercentageSlice'
 
 export default {
   component: TipScreen,
@@ -21,10 +21,27 @@ const Template: ComponentStory<typeof TipScreen> = (args) => (
 )
 
 export const Default = Template.bind({})
-Default.args = {}
 Default.play = () => {
   store.dispatch(reset({}))
   store.dispatch(setBillValue(3500))
+}
+
+export const BillError = Template.bind({})
+BillError.play = () => {
+  store.dispatch(reset({}))
+  store.dispatch(setBillError("Can't be zero"))
+}
+
+export const PeopleError = Template.bind({})
+PeopleError.play = () => {
+  store.dispatch(reset({}))
+  store.dispatch(setPeopleError("Can't be zero"))
+}
+
+export const TipError = Template.bind({})
+TipError.play = () => {
+  store.dispatch(reset({}))
+  store.dispatch(setTipError("Can't be zero"))
 }
 
 export const TwoPeople = Template.bind({})
@@ -39,7 +56,7 @@ TwoPeopleCustomTip.play = () => {
   store.dispatch(reset({}))
   store.dispatch(setBillValue(3500))
   store.dispatch(setPeopleValue(2))
-  store.dispatch(setCustomValue('23'))
+  store.dispatch(setCustomValue(23))
 }
 
 export const Reset = Template.bind({})
@@ -47,6 +64,6 @@ Reset.play = () => {
   store.dispatch(reset({}))
   store.dispatch(setBillValue(3500))
   store.dispatch(setPeopleValue(2))
-  store.dispatch(setCustomValue('23'))
+  store.dispatch(setCustomValue(23))
   store.dispatch(reset({}))
 }

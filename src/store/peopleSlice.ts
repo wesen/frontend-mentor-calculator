@@ -18,6 +18,11 @@ export const PeopleSlice = createSlice({
   reducers: {
     setPeopleValue: (state, action: PayloadAction<number>) => {
       state.value = action.payload
+      state.isError = false
+    },
+    setPeopleError: (state, action: PayloadAction<string>) => {
+      state.isError = true
+      state.errorMessage = action.payload
     },
   },
   extraReducers: (builder) => {
@@ -27,4 +32,4 @@ export const PeopleSlice = createSlice({
   },
 })
 
-export const { setPeopleValue } = PeopleSlice.actions
+export const { setPeopleValue, setPeopleError } = PeopleSlice.actions

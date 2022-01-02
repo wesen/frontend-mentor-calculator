@@ -20,11 +20,17 @@ export const TipPercentageSlice = createSlice({
   reducers: {
     setPresetValue: (state, action: PayloadAction<number>) => {
       state.value = action.payload
+      state.isError = false
       state.isCustom = false
     },
-    setCustomValue: (state, action: PayloadAction<string>) => {
+    setCustomValue: (state, action: PayloadAction<number>) => {
       state.isCustom = true
-      state.value = parseInt(action.payload)
+      state.isError = false
+      state.value = action.payload
+    },
+    setTipError: (state, action: PayloadAction<string>) => {
+      state.isError = true
+      state.errorMessage = action.payload
     },
   },
   extraReducers: (builder) => {
@@ -34,4 +40,5 @@ export const TipPercentageSlice = createSlice({
   },
 })
 
-export const { setPresetValue, setCustomValue } = TipPercentageSlice.actions
+export const { setPresetValue, setCustomValue, setTipError } =
+  TipPercentageSlice.actions
