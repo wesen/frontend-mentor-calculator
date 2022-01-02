@@ -1,7 +1,7 @@
 import * as React from 'react'
-import { EditableButton } from './EditableButton'
 import { ComponentStory } from '@storybook/react'
 import { NumericalField } from './NumericalField'
+import { DollarsLogo, UserLogo } from '../icons'
 
 export default {
   component: NumericalField,
@@ -17,14 +17,14 @@ Default.args = {
   value: '23',
 }
 
-export const Selected = Template.bind({})
-Selected.args = {
-  value: '23',
-  selected: true,
+export const Dollars = Template.bind({})
+Dollars.args = {
+  value: '23.00',
+  unit: DollarsLogo,
 }
 
-export const Custom = Template.bind({})
-Custom.args = {
-  value: undefined,
-  selected: false,
+export const People = Template.bind({})
+People.args = {
+  value: '5',
+  unit: UserLogo,
 }
