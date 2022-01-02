@@ -5,6 +5,10 @@ import { DollarsLogo, UserLogo } from '../icons'
 import { TipScreen } from './TipScreen'
 import { Provider } from 'react-redux'
 import { store } from '../store/store'
+import { reset } from '../store/resultSlice'
+import { setBillValue } from '../store/billSlice'
+import { setPeopleValue } from '../store/peopleSlice'
+import { setCustomValue } from '../store/tipPercentageSlice'
 
 export default {
   component: TipScreen,
@@ -18,9 +22,31 @@ const Template: ComponentStory<typeof TipScreen> = (args) => (
 
 export const Default = Template.bind({})
 Default.args = {}
+Default.play = () => {
+  store.dispatch(reset({}))
+  store.dispatch(setBillValue(3500))
+}
 
-export const Dollars = Template.bind({})
-Dollars.args = {}
+export const TwoPeople = Template.bind({})
+TwoPeople.play = () => {
+  store.dispatch(reset({}))
+  store.dispatch(setBillValue(3500))
+  store.dispatch(setPeopleValue(2))
+}
 
-export const People = Template.bind({})
-People.args = {}
+export const TwoPeopleCustomTip = Template.bind({})
+TwoPeopleCustomTip.play = () => {
+  store.dispatch(reset({}))
+  store.dispatch(setBillValue(3500))
+  store.dispatch(setPeopleValue(2))
+  store.dispatch(setCustomValue('23'))
+}
+
+export const Reset = Template.bind({})
+Reset.play = () => {
+  store.dispatch(reset({}))
+  store.dispatch(setBillValue(3500))
+  store.dispatch(setPeopleValue(2))
+  store.dispatch(setCustomValue('23'))
+  store.dispatch(reset({}))
+}
