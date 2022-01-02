@@ -11,6 +11,7 @@ type Props = {
   activeInputClassName?: string
   transformDisplayValue?: (v: string) => string
   unit?: any
+  label: string
 }
 
 export const NumericalField: React.FunctionComponent<Props> = (props) => {
@@ -24,6 +25,7 @@ export const NumericalField: React.FunctionComponent<Props> = (props) => {
     transformDisplayValue,
     defaultValue,
     unit,
+    label,
   } = props
   const [isEditing, setIsEditing] = useState(false)
   const [editValue, setEditValue] = useState<string | undefined>(value)
@@ -94,6 +96,7 @@ export const NumericalField: React.FunctionComponent<Props> = (props) => {
       <input
         ref={inputRef}
         type="text"
+        aria-label={label}
         className={`
       rounded-md h-12 px-4 font-space font-bold text-lg w-full
       ${

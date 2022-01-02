@@ -45,7 +45,7 @@ export const TipScreen: React.FunctionComponent<Props> = (props) => {
         desktop:shadow-tip-screen
         mx-auto w-full
      flex-col gap-8
-     desktop:flex-row desktop:w-3/4 desktop:mx-auto
+     desktop:flex-row desktop:w-3/5 desktop:mx-auto
     "
       >
         <div className="flex flex-col gap-8 desktop:w-1/2">

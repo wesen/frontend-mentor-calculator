@@ -65,6 +65,7 @@ export const TipGrid: React.FunctionComponent<Props> = (props) => {
           )
         })}
         <EditableButton
+          label="Custom Tip"
           selected={isCustom}
           isError={isError}
           value={isCustom ? value.toString() : undefined}

@@ -45,6 +45,7 @@ export const BillBox = () => {
       </div>
       <NumericalField
         unit={DollarsLogo}
+        label="Bill Amount"
         value={
           valueCents === undefined
             ? undefined

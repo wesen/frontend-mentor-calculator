@@ -46,6 +46,7 @@ export const PeopleBox = () => {
       </div>
 
       <NumericalField
+        label="People"
         unit={UserLogo}
         isError={isError}
         value={value === undefined ? undefined : value.toString()}

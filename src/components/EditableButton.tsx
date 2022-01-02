@@ -6,14 +6,16 @@ type Props = {
   selected: boolean
   isError?: boolean
   onSubmit?: (val: string) => void
+  label: string
 }
 
 export const EditableButton: React.FunctionComponent<Props> = (props) => {
-  const { value, selected, onSubmit, isError } = props
+  const { value, label, selected, onSubmit, isError } = props
 
   return (
     <NumericalField
       value={value}
+      label={label}
       onSubmit={onSubmit}
       transformDisplayValue={(v) => v + '%'}
       isError={isError}
