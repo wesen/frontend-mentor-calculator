@@ -22,7 +22,7 @@ export const BillBox: React.FunctionComponent<Props> = (props) => {
             ? undefined
             : formatter.format(valueCents / 100.0)
         }
-        className="text-right text-dark-green bg-lightest-green"
+        inputClassName="text-right text-dark-green bg-lightest-green"
       />
     </div>
   )

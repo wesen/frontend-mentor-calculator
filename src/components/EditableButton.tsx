@@ -15,7 +15,7 @@ export const EditableButton: React.FunctionComponent<Props> = (props) => {
       value={value}
       onSubmit={onSubmit}
       transformDisplayValue={(v) => v + '%'}
-      className={`${
+      inputClassName={`${
         selected
           ? 'text-dark-green bg-light-green'
           : 'text-medium-green bg-lightest-green'
@@ -23,7 +23,7 @@ export const EditableButton: React.FunctionComponent<Props> = (props) => {
       ${value === undefined ? 'text-right' : 'text-center'}
         `}
       defaultValue="Custom"
-      activeClassName="text-right text-medium-green bg-lightest-green"
+      activeInputClassName="text-right text-medium-green bg-lightest-green"
     />
   )
 }

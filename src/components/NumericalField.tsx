@@ -6,7 +6,8 @@ type Props = {
   defaultValue?: string
   onSubmit?: (val: string) => void
   className?: string
-  activeClassName?: string
+  inputClassName?: string
+  activeInputClassName?: string
   transformDisplayValue?: (v: string) => string
   unit?: any
 }
@@ -14,9 +15,10 @@ type Props = {
 export const NumericalField: React.FunctionComponent<Props> = (props) => {
   const {
     value,
-    onSubmit,
-    activeClassName,
     className,
+    onSubmit,
+    activeInputClassName,
+    inputClassName,
     transformDisplayValue,
     defaultValue,
     unit,
@@ -71,26 +73,32 @@ export const NumericalField: React.FunctionComponent<Props> = (props) => {
   })(value)
 
   return (
-    <div className="relative">
-      <div
-        className="absolute left-2 text-lg 
+    <div
+      className={`relative 
+      ${className || ''}
+    `}
+    >
+      {unit && (
+        <div
+          className="absolute left-2 text-lg 
       flex items-center justify-center
       w-6 h-6
       top-3 left-3
       "
-      >
-        {unit || ''}
-      </div>
+        >
+          {unit || ''}
+        </div>
+      )}
       <input
         ref={inputRef}
         type="text"
         className={`
-      rounded-md h-12 px-4 font-space font-bold text-lg  w-full
+      rounded-md h-12 px-4 font-space font-bold text-lg max-w-full
       border-lightest-green border-2
       outline-light-green outline-2
       ${unit !== undefined ? 'text-right' : ''}
-      ${className || ''}
-      ${isEditing && activeClassName ? activeClassName : ''}
+      ${inputClassName || ''}
+      ${isEditing && activeInputClassName ? activeInputClassName : ''}
       `}
         value={displayValue}
         onChange={handleChange}
