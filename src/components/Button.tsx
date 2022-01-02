@@ -19,7 +19,8 @@ export const Button: React.FunctionComponent<Props> = (props) => {
       }
       ${custom ? 'text-medium-green bg-lightest-green' : ''}
         rounded-md h-12 px-4 font-space font-bold text-lg
-        ${className || ''} `}
+        ${className || ''} 
+        `}
       onClick={(e) => {
         e.preventDefault()
         onClick && onClick()

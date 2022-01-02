@@ -14,6 +14,7 @@ module.exports = {
         'light-green': '#26c2ae',
         'lightest-green': '#f3f9fa',
         'medium-green': '#547878',
+        'light-gray': '#7f9d9f',
         gray: '#5e7a7d',
       },
       boxShadow: {
@@ -21,8 +22,10 @@ module.exports = {
         button: '0px 20px 20px rgba(56, 42, 225, 0.19)',
       },
       fontSize: {
-        xl: ['48px', '-1px'],
+        '2xl': ['48px', '-1px'],
+        xl: ['32px', '-0.6px'],
         lg: '24px',
+        md2: '20px',
         md: '16px',
         sm: '13px',
       },
