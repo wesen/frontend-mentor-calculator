@@ -18,11 +18,8 @@ export default {
   decorators: [(story) => <Provider store={store}>{story()}</Provider>],
   title: 'TipScreen',
   parameters: {
-    //👇 The viewports object from the Essentials addon
     viewport: {
-      //👇 The viewports you want to use
       viewports: INITIAL_VIEWPORTS,
-      //👇 Your own default viewport
       defaultViewport: 'responsive',
     },
   },
