@@ -30,7 +30,9 @@ export const store = configureStore({
     } = res
 
     if (bill.valueCents >= 0 && people.value > 0 && tipPercentage.value >= 0) {
-      const totalCents = Math.round(bill.valueCents / people.value)
+      const totalCents = Math.round(
+        (bill.valueCents * (100 + tipPercentage.value)) / 100.0 / people.value,
+      )
       const tipAmountCents = Math.round(
         ((tipPercentage.value / 100.0) * bill.valueCents) / people.value,
       )
