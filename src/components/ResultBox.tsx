@@ -1,17 +1,12 @@
 import * as React from 'react'
 import { Button } from './Button'
-import { reset, ResultState } from '../store/resultSlice'
+import { reset } from '../store/resultSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../store/store'
-import { BillState } from '../store/billSlice'
-import { PeopleState } from '../store/peopleSlice'
-import { TipPercentageState } from '../store/tipPercentageSlice'
 
 export const ResultBox = () => {
-  const { tipAmountCents, totalCents } = useSelector<RootState, ResultState>(
-    (state) => {
-      const { bill, people, tipPercentage } = state
-
+  const { tipAmountCents, totalCents } = useSelector(
+    ({ bill, people, tipPercentage }: RootState) => {
       const totalCents = Math.round(
         (bill.valueCents * (100 + tipPercentage.value)) / 100.0 / people.value,
       )

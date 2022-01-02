@@ -4,8 +4,6 @@ import { BillSlice, BillState } from './billSlice'
 import { PeopleSlice, PeopleState } from './peopleSlice'
 import { ResultSlice } from './resultSlice'
 
-const rootReducer = combineReducers({})
-
 export const store = configureStore({
   reducer: {
     tipPercentage: TipPercentageSlice.reducer,
