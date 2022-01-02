@@ -12,7 +12,7 @@ export const PeopleBox = () => {
   const dispatch = useDispatch()
 
   return (
-    <div className="w-72">
+    <div className="">
       <h2 className="text-gray text-md font-space font-bold mb-2">
         Number of People
       </h2>

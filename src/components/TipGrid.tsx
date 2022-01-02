@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { Button } from './Button'
 import { EditableButton } from './EditableButton'
-import { useState } from 'react'
 import { RootState } from '../store/store'
 import { useDispatch, useSelector } from 'react-redux'
 import {
@@ -28,7 +27,7 @@ export const TipGrid: React.FunctionComponent<Props> = (props) => {
       <h2 className="text-gray text-md font-space font-bold mb-2">
         Select Tip %
       </h2>
-      <div className={`${className} grid grid-cols-2 w-72 mt-4 gap-4`}>
+      <div className={`${className} grid grid-cols-2 mt-4 gap-4`}>
         {[5, 10, 15, 25, 50].map((v) => {
           return (
             <Button
