@@ -17,7 +17,12 @@ export const BillSlice = createSlice({
   initialState,
   reducers: {
     setBillValue: (state: BillState, action: PayloadAction<number>) => {
+      state.isError = false
       state.valueCents = action.payload
+    },
+    setBillError: (state: BillState, action: PayloadAction<string>) => {
+      state.isError = true
+      state.errorMessage = action.payload
     },
   },
   extraReducers: (builder) => {
@@ -27,4 +32,4 @@ export const BillSlice = createSlice({
   },
 })
 
-export const { setBillValue } = BillSlice.actions
+export const { setBillValue, setBillError } = BillSlice.actions

@@ -4,6 +4,7 @@ import { ChangeEvent, KeyboardEvent, useRef, useState } from 'react'
 type Props = {
   value?: string
   defaultValue?: string
+  isError?: boolean
   onSubmit?: (val: string) => void
   className?: string
   inputClassName?: string
@@ -17,6 +18,7 @@ export const NumericalField: React.FunctionComponent<Props> = (props) => {
     value,
     className,
     onSubmit,
+    isError,
     activeInputClassName,
     inputClassName,
     transformDisplayValue,
@@ -74,7 +76,7 @@ export const NumericalField: React.FunctionComponent<Props> = (props) => {
 
   return (
     <div
-      className={`relative 
+      className={`relative flex
       ${className || ''}
     `}
     >
@@ -93,9 +95,13 @@ export const NumericalField: React.FunctionComponent<Props> = (props) => {
         ref={inputRef}
         type="text"
         className={`
-      rounded-md h-12 px-4 font-space font-bold text-lg max-w-full
-      border-lightest-green border-2
-      outline-light-green outline-2
+      rounded-md h-12 px-4 font-space font-bold text-lg w-full
+      ${
+        isError
+          ? 'border-warning focus:border-light-green hover:border-light-green'
+          : 'border-lightest-green focus:border-light-green hover:border-light-green'
+      }
+       border-2 outline-0
       ${unit !== undefined ? 'text-right' : ''}
       ${inputClassName || ''}
       ${isEditing && activeInputClassName ? activeInputClassName : ''}
