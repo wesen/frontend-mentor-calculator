@@ -1,9 +1,9 @@
 import * as React from 'react'
 import { NumericalField } from './NumericalField'
 import { DollarsLogo } from '../icons'
-import { BillState, setBillValue } from '../store/billSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootState } from '../store/store'
+import { BillState, setBillValue } from '../store/billSlice'
 
 export const BillBox = () => {
   const { valueCents } = useSelector<RootState, BillState>((state) => {
@@ -15,7 +15,7 @@ export const BillBox = () => {
     minimumFractionDigits: 2,
   })
   return (
-    <div className="w-72">
+    <div className="">
       <h2 className="text-gray text-md font-space font-bold mb-2">Bill</h2>
       <NumericalField
         unit={DollarsLogo}

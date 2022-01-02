@@ -21,10 +21,10 @@ type Props = {
 export const TipScreen: React.FunctionComponent<Props> = (props) => {
   const { className } = props
   return (
-    <div className="flex flex-col gap-8">
+    <div className="bg-white rounded-t-3xl p-8 flex flex-col gap-8 w-96">
       <BillBox />
       <TipGrid />
-      <PeopleBox value={1} />
+      <PeopleBox />
       <ResultBox />
     </div>
   )
